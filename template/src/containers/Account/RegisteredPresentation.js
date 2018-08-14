@@ -9,10 +9,10 @@ import {
 import styles from './style.css'
 
 const RegisteredPresentationContainer = ({
+  availableLanguages,
   onGotoSignup,
   onLanguageChange,
   selectedLanguage,
-  availableLanguages,
   t,
 }) => (
   <div className={styles.secondaryContent}>
@@ -54,10 +54,10 @@ const RegisteredPresentationContainer = ({
 )
 
 RegisteredPresentationContainer.propTypes = {
+  availableLanguages: PropTypes.arrayOf(PropTypes.string).isRequired,
   onGotoSignup: PropTypes.func.isRequired,
   onLanguageChange: PropTypes.func.isRequired,
   selectedLanguage: PropTypes.string.isRequired,
-  availableLanguages: PropTypes.arrayOf(PropTypes.string).isRequired,
   t: PropTypes.func.isRequired,
 }
 

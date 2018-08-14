@@ -41,7 +41,7 @@ const enhance = compose(
   translate()
 )
 
-const AccountArea = ({ t, history: { location } }) => (
+const AccountArea = ({ history: { location }, t }) => (
   <Account
     logo={props => (
       <a href="https://openclipart.org/detail/270878/datacubes">
@@ -102,12 +102,12 @@ const AccountArea = ({ t, history: { location } }) => (
 )
 
 AccountArea.propTypes = {
-  t: PropTypes.func.isRequired,
   history: PropTypes.shape({
     location: PropTypes.shape({
       pathname: PropTypes.string,
     }),
   }).isRequired,
+  t: PropTypes.func.isRequired,
 }
 
 export default enhance(AccountArea)

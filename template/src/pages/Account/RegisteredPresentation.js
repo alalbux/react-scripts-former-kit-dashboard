@@ -39,16 +39,16 @@ class RegisteredPresentationPage extends PureComponent {
 }
 
 RegisteredPresentationPage.propTypes = {
-  t: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+    replace: PropTypes.func,
+  }).isRequired,
   i18n: PropTypes.shape({
     changeLanguage: PropTypes.func,
     language: PropTypes.string,
     languages: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
-  history: PropTypes.shape({
-    push: PropTypes.func,
-    replace: PropTypes.func,
-  }).isRequired,
+  t: PropTypes.func.isRequired,
 }
 
 export default enhanced(RegisteredPresentationPage)

@@ -65,12 +65,12 @@ class TableContainer extends Component {
     } = this.props
 
     this.state = {
-      orderColumn: 0,
-      order: 'ascending',
-      rows,
       columns,
-      selectedRows: [],
       expandedRows: [],
+      order: 'ascending',
+      orderColumn: 0,
+      rows,
+      selectedRows: [],
     }
 
     this.handleExpandRow = this.handleExpandRow.bind(this)
@@ -79,11 +79,11 @@ class TableContainer extends Component {
   }
 
   handleOrderChange (index, order) {
-    const { rows, columns } = this.state
+    const { columns, rows } = this.state
     const sortedRows = sortByOrderColumn(rows, columns, index, order)
     this.setState({
-      orderColumn: index,
       order,
+      orderColumn: index,
       rows: sortedRows,
     })
   }
@@ -102,10 +102,10 @@ class TableContainer extends Component {
 
   render () {
     const {
-      selectable,
       expandable,
       maxColumns,
       onRowClick,
+      selectable,
     } = this.props
 
     const {
@@ -150,7 +150,7 @@ class TableContainer extends Component {
               <span />
               <Dropdown
                 options={[10, 20, 30, 40, 50].map(i =>
-                  ({ name: `${i} items per page`, value: `${i}` }))
+                  ({ name: `${i} items per page`, value: i }))
                 }
                 name="count"
                 value={this.state.selected}
@@ -187,21 +187,21 @@ class TableContainer extends Component {
 }
 
 TableContainer.propTypes = {
-  selectable: bool,
-  expandable: bool,
-  onRowClick: func,
-  maxColumns: number,
   columns: arrayOf(object), // eslint-disable-line
+  expandable: bool,
+  maxColumns: number,
+  onRowClick: func,
   rows: arrayOf(object), // eslint-disable-line
+  selectable: bool,
 }
 
 TableContainer.defaultProps = {
   columns: [],
-  rows: [],
-  selectable: false,
   expandable: false,
   maxColumns: 7,
   onRowClick: () => undefined,
+  rows: [],
+  selectable: false,
 }
 
 export default TableContainer

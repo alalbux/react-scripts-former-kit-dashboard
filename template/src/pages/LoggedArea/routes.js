@@ -1,3 +1,5 @@
+/* eslint-disable sort-keys */
+
 import ChartBars32 from 'emblematic-icons/svg/ChartBars32.svg'
 import Wallet32 from 'emblematic-icons/svg/Wallet32.svg'
 import Home32 from 'emblematic-icons/svg/Home32.svg'

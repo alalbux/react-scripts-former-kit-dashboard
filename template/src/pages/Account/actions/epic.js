@@ -24,8 +24,7 @@ const accountEpic = action$ =>
           return res.json().then(throwError)
         })
         .catch(body => throwError({ body }))
-
-    )
+    ) // eslint-disable-line function-paren-newline
     .map(receiveLogin)
 
 export default accountEpic

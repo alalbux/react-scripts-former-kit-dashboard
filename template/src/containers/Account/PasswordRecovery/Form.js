@@ -9,8 +9,8 @@ import {
 import styles from '../style.css'
 
 const PasswordRecoveryForm = ({
-  onSubmit,
   onBackToLogin,
+  onSubmit,
   t,
 }) => (
   <Form

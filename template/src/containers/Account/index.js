@@ -34,7 +34,7 @@ const Account = ({
 
 Account.propTypes = {
   base: PropTypes.string,
-  logo: PropTypes.func.isRequired,
+  logo: PropTypes.node.isRequired,
   primaryContent: PropTypes.node.isRequired,
   secondaryContent: PropTypes.node.isRequired,
 }

@@ -14,26 +14,26 @@ import dataset from './dataset'
 
 const columns = [
   {
-    title: 'Status',
-    renderer: renderStatusLegend,
     accessor: ['status'],
     orderable: true,
+    renderer: renderStatusLegend,
+    title: 'Status',
   },
-  { title: 'Transaction Id', accessor: ['id'], orderable: true },
-  { title: 'Date created', accessor: ['created_at'], orderable: true },
-  { title: 'Paid amount', accessor: ['paid_amount'], orderable: true },
-  { title: 'Installments', accessor: ['installments'], orderable: true },
+  { accessor: ['id'], orderable: true, title: 'Transaction Id' },
+  { accessor: ['created_at'], orderable: true, title: 'Date created' },
+  { accessor: ['paid_amount'], orderable: true, title: 'Paid amount' },
+  { accessor: ['installments'], orderable: true, title: 'Installments' },
   {
-    title: 'Card brand',
     accessor: ['card_brand'],
     orderable: true,
     renderer: renderCardBrand,
+    title: 'Card brand',
   },
-  { title: 'Document Number', accessor: ['document_number'], orderable: true },
-  { title: 'Card Holder', accessor: ['card_holder_name'], orderable: true },
-  { title: 'E-mail', accessor: ['email'], orderable: true },
-  { title: 'IP Address', accessor: ['ip_address'], orderable: false },
-  { title: 'billing_address', accessor: ['billing_address'], orderable: true },
+  { accessor: ['document_number'], orderable: true, title: 'Document Number' },
+  { accessor: ['card_holder_name'], orderable: true, title: 'Card Holder' },
+  { accessor: ['email'], orderable: true, title: 'E-mail' },
+  { accessor: ['ip_address'], orderable: false, title: 'IP Address' },
+  { accessor: ['billing_address'], orderable: true, title: 'billing_address' },
 ]
 
 const TablePage = () => (
@@ -53,4 +53,3 @@ const TablePage = () => (
 )
 
 export default TablePage
-

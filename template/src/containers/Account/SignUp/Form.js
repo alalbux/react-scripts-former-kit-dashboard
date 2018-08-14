@@ -14,9 +14,9 @@ const SignUpForm = ({
 }) => (
   <Form
     data={{
+      company: '',
       email: '',
       name: '',
-      company: '',
       password: '',
     }}
     onSubmit={onSubmit}

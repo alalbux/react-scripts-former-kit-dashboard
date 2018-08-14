@@ -19,7 +19,7 @@ const enhance = compose(
   connect(({ account: { token } }) => ({ token }))
 )
 
-function Root ({ token, location }) {
+function Root ({ location, token }) {
   const { pathname: path } = location
   return (
     <Fragment>
@@ -38,15 +38,15 @@ function Root ({ token, location }) {
 }
 
 Root.propTypes = {
-  token: PropTypes.string,
   location: PropTypes.shape({
-    pathname: PropTypes.string,
+    pathnae: PropTypes.string,
   }),
+  token: PropTypes.string,
 }
 
 Root.defaultProps = {
-  token: null,
   location: {},
+  token: null,
 }
 
 export default enhance(Root)
