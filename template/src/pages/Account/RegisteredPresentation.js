@@ -5,10 +5,7 @@ import { translate } from 'react-i18next'
 import { compose } from 'ramda'
 import RegisteredPresentation from '../../containers/Account/RegisteredPresentation'
 
-const enhanced = compose(
-  translate(),
-  withRouter
-)
+const enhanced = compose(translate(), withRouter)
 
 class RegisteredPresentationPage extends PureComponent {
   constructor (props) {
@@ -29,7 +26,16 @@ class RegisteredPresentationPage extends PureComponent {
     return (
       <RegisteredPresentation
         onGotoSignup={this.handleSignup}
-        availableLanguages={['en-US', 'pt']}
+        availableLanguages={[
+          {
+            title: 'English',
+            value: 'en-US',
+          },
+          {
+            title: 'Portuguese',
+            value: 'pt',
+          },
+        ]}
         selectedLanguage={this.props.i18n.language}
         onLanguageChange={this.handleLanguageChange}
         t={this.props.t}

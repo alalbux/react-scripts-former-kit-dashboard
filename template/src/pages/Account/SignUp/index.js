@@ -5,10 +5,7 @@ import { translate } from 'react-i18next'
 import { compose } from 'ramda'
 import { SingUpForm } from '../../../containers/Account/SignUp'
 
-const enhanced = compose(
-  translate(),
-  withRouter
-)
+const enhanced = compose(translate(), withRouter)
 
 class SignUpPage extends PureComponent {
   constructor (props) {
@@ -21,12 +18,7 @@ class SignUpPage extends PureComponent {
   }
 
   render () {
-    return (
-      <SingUpForm
-        onSubmit={this.handleSubmit}
-        t={this.props.t}
-      />
-    )
+    return <SingUpForm onSubmit={this.handleSubmit} t={this.props.t} />
   }
 }
 

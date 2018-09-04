@@ -21,10 +21,7 @@ const HeaderContainer = ({ avatar, username }) => (
       <HeaderLink icon={<Mail24 />} />
       <HeaderLink icon={<Alert24 />} />
       <HeaderMenu>
-        <Avatar
-          photo={avatar}
-          icon={<User24 />}
-        />
+        <Avatar photo={avatar} icon={<User24 />} />
         <span>{username}</span>
       </HeaderMenu>
     </HeaderContent>

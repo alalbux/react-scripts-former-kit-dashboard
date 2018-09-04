@@ -11,10 +11,7 @@ const enhance = connect(({ account: { token: username } }) => ({
 }))
 
 const HeaderContainer = ({ avatar, username }) => (
-  <Header
-    avatar={avatar}
-    username={username}
-  />
+  <Header avatar={avatar} username={username} />
 )
 
 HeaderContainer.propTypes = {

@@ -1,11 +1,7 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-import {
-  Route,
-  Redirect,
-  withRouter,
-} from 'react-router-dom'
+import { Route, Redirect, withRouter } from 'react-router-dom'
 
 import { connect } from 'react-redux'
 
@@ -23,16 +19,13 @@ function Root ({ location, token }) {
   const { pathname: path } = location
   return (
     <Fragment>
-      {!token && !path.startsWith('/account')
-        ? <Redirect to="/account/login" />
-        : <Route path="/account" component={Account} />
-      }
-      {token && path.startsWith('/account/login') &&
-        <Redirect to="/" />
-      }
-      {token &&
-        <LoggedArea />
-      }
+      {!token && !path.startsWith('/account') ? (
+        <Redirect to="/account/login" />
+      ) : (
+        <Route path="/account" component={Account} />
+      )}
+      {token && path.startsWith('/account/login') && <Redirect to="/" />}
+      {token && <LoggedArea />}
     </Fragment>
   )
 }

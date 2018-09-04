@@ -5,10 +5,7 @@ import { translate } from 'react-i18next'
 import { compose } from 'ramda'
 import { PasswordRecoveryForm } from '../../../containers/Account/PasswordRecovery'
 
-const enhanced = compose(
-  translate(),
-  withRouter
-)
+const enhanced = compose(translate(), withRouter)
 
 class PasswordRecoveryPage extends PureComponent {
   constructor (props) {

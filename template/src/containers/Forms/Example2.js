@@ -7,9 +7,7 @@ import {
   CardContent,
   CardTitle,
   CardActions,
-
   Button,
-
   FormInput,
   FormDropdown,
   RadioGroup,
@@ -36,15 +34,9 @@ class FormExample1 extends React.Component {
               projectCount: [required, isNumber],
             }}
           >
-            <CardTitle
-              title="Form input style"
-            />
+            <CardTitle title="Form input style" />
             <CardContent className={style.form}>
-              <FormInput
-                type="text"
-                name="name"
-                label="Name"
-              />
+              <FormInput type="text" name="name" label="Name" />
               <FormInput
                 type="number"
                 name="projectCount"
@@ -68,17 +60,13 @@ class FormExample1 extends React.Component {
           </Form>
         </Card>
         <Card>
-          <CardTitle
-            title="Form Data"
-          />
+          <CardTitle title="Form Data" />
           <CardContent>
-            {this.state.result &&
+            {this.state.result && (
               <pre>
-                <code>
-                  {JSON.stringify(this.state.result, null, 2)}
-                </code>
+                <code>{JSON.stringify(this.state.result, null, 2)}</code>
               </pre>
-            }
+            )}
           </CardContent>
         </Card>
       </Fragment>

@@ -12,11 +12,7 @@ import { requestLogin } from '../actions'
 
 const mapStateToProps = (state) => {
   const {
-    account: {
-      errors,
-      loading,
-      token,
-    },
+    account: { errors, loading, token },
   } = state
 
   return {
@@ -33,10 +29,7 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const enhanced = compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
+  connect(mapStateToProps, mapDispatchToProps),
   translate(),
   withRouter
 )

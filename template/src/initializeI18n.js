@@ -12,7 +12,7 @@ i18n
 
     defaultNS: 'translations',
 
-    fallbackLng: 'en',
+    fallbackLng: 'en-US',
 
     interpolation: {
       escapeValue: false,

@@ -1,11 +1,5 @@
 import React, { Component } from 'react'
-import {
-  arrayOf,
-  bool,
-  func,
-  number,
-  object,
-} from 'prop-types'
+import PropTypes from 'prop-types'
 
 import {
   compose,
@@ -22,14 +16,12 @@ import {
 
 import {
   Button,
-  Dropdown,
-  Pagination,
-
   Card,
   CardContent,
   CardSection,
   CardTitle,
-
+  Dropdown,
+  Pagination,
   Table,
 } from 'former-kit'
 
@@ -42,11 +34,11 @@ const isAscending = equals('ascending')
 const rowSort = accessor =>
   sortBy(compose(when(is(String), toLower), defaultTo(''), path(accessor)))
 
-const buildSorter = (accessor, order) => (
-  isAscending(order) ?
-    rowSort(accessor) :
-    pipe(rowSort(accessor), reverse)
-)
+const buildSorter = (accessor, order) =>
+  (isAscending(order)
+    ? rowSort(accessor)
+    : pipe(rowSort(accessor), reverse)
+  )
 
 const sortByOrderColumn = (rows, columns, orderColumn, order) => {
   const referenceColumn = columns[orderColumn]
@@ -59,10 +51,7 @@ class TableContainer extends Component {
   constructor (props) {
     super(props)
 
-    const {
-      columns,
-      rows,
-    } = this.props
+    const { columns, rows } = this.props
 
     this.state = {
       columns,
@@ -122,62 +111,63 @@ class TableContainer extends Component {
         <CardTitle title="Table sample" />
         <CardContent>
           <CardSection
-            title="Selectable and expandable rows"
             subTitle="It's an awesome table component!"
+            title="Selectable and expandable rows"
           >
             <div className={style.buttons}>
               <Button
-                relevance="low"
                 fill="outline"
                 icon={<IconAdd24 width="12px" height="12px" />}
+                relevance="low"
               >
                 Click me
               </Button>
               <Button
-                relevance="low"
                 fill="outline"
                 icon={<IconAdd24 width="12px" height="12px" />}
+                relevance="low"
               >
                 Click me
               </Button>
               <Button
-                relevance="low"
                 fill="outline"
                 icon={<IconAdd24 width="12px" height="12px" />}
+                relevance="low"
               >
                 Click me
               </Button>
               <span />
               <Dropdown
-                options={[10, 20, 30, 40, 50].map(i =>
-                  ({ name: `${i} items per page`, value: i }))
-                }
                 name="count"
-                value={this.state.selected}
-                placeholder="Items per page"
                 onChange={() => undefined}
+                options={[10, 20, 30, 40, 50].map(i => ({
+                  name: `${i} items per page`,
+                  value: i,
+                }))}
+                placeholder="Items per page"
+                value={this.state.selected}
               />
               <Pagination
                 currentPage={1}
-                totalPages={128}
                 onPageChange={() => undefined}
+                totalPages={128}
               />
             </div>
             <Table
               className={style.table}
               columns={columns}
-              rows={rows}
-              selectable={selectable}
               expandable={expandable}
-              selectedRows={selectedRows}
               expandedRows={expandedRows}
               maxColumns={maxColumns}
-              onOrderChange={this.handleOrderChange}
-              onSelectRow={this.handleSelectRow}
-              orderSequence={order}
-              orderColumn={orderColumn}
               onExpandRow={this.handleExpandRow}
+              onOrderChange={this.handleOrderChange}
               onRowClick={onRowClick}
+              onSelectRow={this.handleSelectRow}
+              orderColumn={orderColumn}
+              orderSequence={order}
+              rows={rows}
+              selectable={selectable}
+              selectedRows={selectedRows}
             />
           </CardSection>
         </CardContent>
@@ -187,12 +177,12 @@ class TableContainer extends Component {
 }
 
 TableContainer.propTypes = {
-  columns: arrayOf(object), // eslint-disable-line
-  expandable: bool,
-  maxColumns: number,
-  onRowClick: func,
-  rows: arrayOf(object), // eslint-disable-line
-  selectable: bool,
+  columns: PropTypes.arrayOf(PropTypes.object),
+  expandable: PropTypes.bool,
+  maxColumns: PropTypes.number,
+  onRowClick: PropTypes.func,
+  rows: PropTypes.arrayOf(PropTypes.object),
+  selectable: PropTypes.bool,
 }
 
 TableContainer.defaultProps = {

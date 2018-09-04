@@ -1,6 +1,4 @@
-import {
-  merge,
-} from 'ramda'
+import { merge } from 'ramda'
 
 import { LOGIN_REQUEST, LOGIN_RECEIVE, LOGOUT_REQUEST } from '.'
 
@@ -16,24 +14,18 @@ export default function loginReducer (state = initialState, action) {
 
     case LOGIN_RECEIVE: {
       if (action.error) {
-        return merge(
-          state,
-          {
-            errors: { password: action.payload.message },
-            loading: false,
-            token: undefined,
-          }
-        )
+        return merge(state, {
+          errors: { password: action.payload.message },
+          loading: false,
+          token: undefined,
+        })
       }
 
-      return merge(
-        state,
-        {
-          errors: undefined,
-          loading: false,
-          token: action.payload.token,
-        }
-      )
+      return merge(state, {
+        errors: undefined,
+        loading: false,
+        token: action.payload.token,
+      })
     }
 
     case LOGOUT_REQUEST: {
