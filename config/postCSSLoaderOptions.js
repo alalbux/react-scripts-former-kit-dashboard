@@ -1,14 +1,13 @@
-const path = require('path')
-const { normalize } = require('postcss-url/src/lib/paths')
+'use strict';
+
+const path = require('path');
+const { normalize } = require('postcss-url/src/lib/paths');
 
 // This is necessary because postcss-url doesn't add a trailing ./ to
 // rebased URLs, causing relative imports to fail resolving.
-function postcssUrlRebase (asset, dir) {
-  const rebasedUrl = normalize(
-    path.relative(dir.to, asset.absolutePath)
-  )
-
-  return `./${rebasedUrl}${asset.search}${asset.hash}`
+function postcssUrlRebase(asset, dir) {
+  const rebasedUrl = normalize(path.relative(dir.to, asset.absolutePath));
+  return `./${rebasedUrl}${asset.search}${asset.hash}`;
 }
 
 // Options for PostCSS as we reference these options multiple times.
@@ -21,8 +20,7 @@ module.exports = {
     require('postcss-sass-each'),
     require('postcss-import'),
     require('postcss-url')({ url: postcssUrlRebase }),
-    require('postcss-cssnext'),
+    require('postcss-preset-env')({ stage: 0 }),
     require('postcss-hexrgba'),
   ],
 };
-
