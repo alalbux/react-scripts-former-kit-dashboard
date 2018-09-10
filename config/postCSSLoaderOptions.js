@@ -16,7 +16,7 @@ module.exports = {
   // https://github.com/facebookincubator/create-react-app/issues/2677
   ident: 'postcss',
   importLoaders: 1,
-  plugins: () => [
+  plugins: [
     require('postcss-sass-each'),
     require('postcss-import'),
     require('postcss-url')({ url: postcssUrlRebase }),
