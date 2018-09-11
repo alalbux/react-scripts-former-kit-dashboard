@@ -201,7 +201,7 @@ module.exports = {
                   },
                   // @remove-on-eject-end
                 }),
-                ...postCSSLoaderOptions.plugins(),
+                ...postCSSLoaderOptions.plugins,
               ],
             },
           },
